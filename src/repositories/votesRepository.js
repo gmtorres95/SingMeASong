@@ -1,7 +1,7 @@
 import connection from '../database.js';
 
 export async function getSongScore(id) {
-  return await connection.query(`
+  const result = await connection.query(`
     SELECT
       (
         SELECT
@@ -14,6 +14,7 @@ export async function getSongScore(id) {
     WHERE id = $1;`,
     [id],
   );
+  return result.rows;
 }
 
 export async function vote(id, isUpvote = true) {
