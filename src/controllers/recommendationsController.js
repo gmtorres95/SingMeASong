@@ -5,7 +5,7 @@ import * as recommendationService from '../services/recommendationService.js';
 export async function createRecommendation(req, res, next) {
   try {
     await validateRecommendation(req.body);
-    await recommendationService.createRecommendation(req.bodya);
+    await recommendationService.createRecommendation(req.body);
 
     res.sendStatus(201);
   } catch (err) {
