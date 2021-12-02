@@ -8,5 +8,5 @@ export async function vote(id, isUpvote) {
   await votesRepository.vote(id, isUpvote);
 
   const score = song.rows[0].score - 1;
-  if (!isUpvote && score <= -5) await votesRepository.deleteSong(id);
+  if (!isUpvote && score < -5) await votesRepository.deleteSong(id);
 }
