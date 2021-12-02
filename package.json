@@ -1,0 +1,31 @@
+{
+  "name": "api_sing_me_a_song",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node src/server.js",
+    "start:dev": "NODE_ENV=dev nodemon src/server.js",
+    "test": "npx jest",
+    "test:watch": "npx jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.3",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "babel-jest": "^27.4.2",
+    "faker": "^5.5.3",
+    "jest": "^27.4.3",
+    "supertest": "^6.1.6"
+  }
+}
