@@ -8,6 +8,6 @@ export const recommendationSchema = joi.object({
     .required(),
   youtubeLink: joi
     .string()
-    .pattern(/^https:\/\/youtu\.be\/[a-zA-Z]{11}$/)
+    .pattern(/^https:\/\/youtu\.be\/[a-zA-Z0-9\-_]{11}$/)
     .required(),
 });

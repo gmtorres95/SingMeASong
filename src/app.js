@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
+import formatLink from './middlewares/formatLink.js';
 import * as recommendationsController from './controllers/recommendationsController.js';
 
 const app = express();
@@ -9,6 +10,6 @@ app.use(cors());
 
 app.get('/health', (req, res) => res.sendStatus(200));
 
-app.post('/recommendations', recommendationsController.createRecommendation);
+app.post('/recommendations', formatLink, recommendationsController.createRecommendation);
 
 export default app;
