@@ -7,8 +7,8 @@
   "scripts": {
     "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node src/server.js",
     "start:dev": "NODE_ENV=dev nodemon src/server.js",
-    "test": "npx jest",
-    "test:watch": "npx jest --watch"
+    "test": "npx jest -i",
+    "test:watch": "npx jest -i --watch"
   },
   "keywords": [],
   "author": "",

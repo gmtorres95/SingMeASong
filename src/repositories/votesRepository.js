@@ -11,7 +11,7 @@ export async function getSongScore(id) {
         TotalCount
       ) as score
     FROM songs
-    WHERE id = $1;`,
+    WHERE id = $1`,
     [id],
   );
   return result.rows;
