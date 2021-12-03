@@ -5,9 +5,9 @@ export async function getSongScore(id) {
     SELECT
       (
         SELECT
-          (SELECT COUNT(*) FROM votes WHERE (song_id = $1 AND is_upvote = TRUE))
+          (SELECT COUNT(*) FROM votes WHERE (song_id = songs.id AND is_upvote = TRUE))
           -
-          (SELECT COUNT(*) FROM votes WHERE (song_id = $1 AND is_upvote = FALSE))
+          (SELECT COUNT(*) FROM votes WHERE (song_id = songs.id AND is_upvote = FALSE))
         TotalCount
       ) as score
     FROM songs
