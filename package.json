@@ -24,6 +24,9 @@
     "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/preset-env": "^7.16.4",
     "babel-jest": "^27.4.2",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
     "faker": "^5.5.3",
     "jest": "^27.4.3",
     "supertest": "^6.1.6"
