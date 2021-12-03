@@ -3,8 +3,6 @@ import ValidationError from '../errors/ValidationError.js';
 import * as validations from '../validations/validations.js';
 import * as recommendationService from '../services/recommendationService.js';
 
-import connection from '../database.js';
-
 export async function createRecommendation(req, res, next) {
   try {
     await validations.validateRecommendation(req.body);

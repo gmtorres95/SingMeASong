@@ -19,14 +19,11 @@ export async function getMaxAndMinScores() {
   const result = await connection.query(`
     SELECT
       (SELECT score AS "maxScore" FROM songs ORDER BY score DESC LIMIT 1),
-      (SELECT score AS "minScore" FROM songs ORDER BY score LIMIT 1)`
-  );
+      (SELECT score AS "minScore" FROM songs ORDER BY score LIMIT 1)`);
   return result.rows[0];
 }
 
 export async function getRandomRecommendations(filter) {
-  const result = await connection.query(
-    `SELECT * FROM songs ${filter}ORDER BY RANDOM() LIMIT 1`
-  );
+  const result = await connection.query(`SELECT * FROM songs ${filter}ORDER BY RANDOM() LIMIT 1`);
   return result.rows;
 }
