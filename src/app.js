@@ -12,6 +12,7 @@ app.use(cors());
 
 app.get('/health', (req, res) => res.sendStatus(200));
 app.post('/recommendations', formatLink, recommendationsController.createRecommendation);
+app.get('/recommendations/top/:amount', recommendationsController.getTopRecommendations);
 app.post('/recommendations/:id/upvote', votesController.vote);
 app.post('/recommendations/:id/downvote', votesController.vote);
 

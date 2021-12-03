@@ -11,3 +11,11 @@ export const recommendationSchema = joi.object({
     .pattern(/^https:\/\/youtu\.be\/[a-zA-Z0-9\-_]{11}$/)
     .required(),
 });
+
+export const amountSchema = joi.object({
+  amount: joi
+    .number()
+    .integer()
+    .greater(0)
+    .required(),
+});

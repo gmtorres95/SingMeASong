@@ -6,3 +6,11 @@ export async function createRecommendation({ name, youtubeLink }) {
     [name, youtubeLink],
   );
 }
+
+export async function getTopRecommendations(amount) {
+  const result = await connection.query(
+    'SELECT * FROM songs ORDER BY score DESC LIMIT $1',
+    [amount],
+  );
+  return result.rows;
+}

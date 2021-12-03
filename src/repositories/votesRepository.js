@@ -1,34 +1,21 @@
 import connection from '../database.js';
 
 export async function getSongScore(id) {
-  const result = await connection.query(`
-    SELECT
-      (
-        SELECT
-          (SELECT COUNT(*) FROM votes WHERE (song_id = $1 AND is_upvote = TRUE))
-          -
-          (SELECT COUNT(*) FROM votes WHERE (song_id = $1 AND is_upvote = FALSE))
-        TotalCount
-      ) as score
-    FROM songs
-    WHERE id = $1`,
+  const result = await connection.query(
+    'SELECT score FROM songs WHERE id = $1',
     [id],
   );
-  return result.rows;
+  return result.rows[0]?.score;
 }
 
-export async function vote(id, isUpvote = true) {
+export async function vote(score, id) {
   await connection.query(
-    'INSERT INTO votes (song_id, is_upvote) VALUES ($1, $2)',
-    [id, isUpvote],
+    'UPDATE songs SET score = $1 WHERE id = $2',
+    [score, id],
   );
 }
 
 export async function deleteSong(id) {
-  await connection.query(
-    'DELETE FROM votes WHERE song_id = $1',
-    [id],
-  );
   await connection.query(
     'DELETE FROM songs WHERE id = $1',
     [id],
