@@ -11,3 +11,18 @@ export async function getTopRecommendations(amount) {
 
   return recommendations;
 }
+
+export async function getRandomRecommendations() {
+  const scores = await recommendationRepository.getMaxAndMinScores();
+  if (scores.maxScore === null) throw new SongNotFound('There is no songs to recommend');
+
+  let filter = '';
+  const randomNumber = Math.ceil(Math.random()*10);
+  if (randomNumber > 3 && scores.maxScore > 10) filter = 'WHERE score > 10 ';
+  if (randomNumber <= 3 && scores.minScore <= 10) filter = 'WHERE score <= 10 ';
+
+  const recommendations = await recommendationRepository.getRandomRecommendations(filter);
+  if (!recommendations.length) throw new SongNotFound('There is no songs to recommend');
+
+  return recommendations;
+}
