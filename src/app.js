@@ -1,9 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
-import formatLink from './middlewares/formatLink.js';
+import reccomendationsRouter from './routers/recommendationsRouter.js';
 import errorHandler from './middlewares/errorHandler.js';
-import * as recommendationsController from './controllers/recommendationsController.js';
 import * as votesController from './controllers/votesController.js';
 
 const app = express();
@@ -11,9 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/health', (req, res) => res.sendStatus(200));
-app.post('/recommendations', formatLink, recommendationsController.createRecommendation);
-app.get('/recommendations/top/:amount', recommendationsController.getTopRecommendations);
-app.get('/recommendations/random', recommendationsController.getRandomRecommendations);
+app.use(reccomendationsRouter);
 app.post('/recommendations/:id/upvote', votesController.vote);
 app.post('/recommendations/:id/downvote', votesController.vote);
 
