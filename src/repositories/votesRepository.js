@@ -28,7 +28,7 @@ export async function deleteSong(id) {
   await connection.query(
     'DELETE FROM votes WHERE song_id = $1',
     [id],
-  )
+  );
   await connection.query(
     'DELETE FROM songs WHERE id = $1',
     [id],
