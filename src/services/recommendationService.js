@@ -1,5 +1,5 @@
 import SongNotFound from '../errors/SongNotFound.js';
-import * as recommendationRepository from '../repositories/reccomendationRepository.js';
+import * as recommendationRepository from '../repositories/recommendationRepository.js';
 
 export async function createRecommendation(recommendation) {
   await recommendationRepository.createRecommendation(recommendation);
