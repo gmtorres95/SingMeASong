@@ -5,11 +5,11 @@ import connection from '../../src/database.js';
 import recommendationFactory from './factories/recommendationFactory.js';
 
 afterAll(async () => {
-  await connection.query(`DELETE FROM songs`);
+  await connection.query('DELETE FROM songs');
   connection.end();
-})
+});
 
-describe('createRecommendation', () => {
+describe('/recommendations', () => {
   const recommendation = recommendationFactory();
 
   it("Returns 201 for valid request", async () => {
