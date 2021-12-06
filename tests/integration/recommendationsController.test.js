@@ -59,7 +59,7 @@ describe('/recommendations', () => {
 
 describe('/recommendations/top/:amount', () => {
   it("Returns 200 for valid request", async () => {
-    const amount = 5;
+    const amount = 3;
     const result = await supertest(app).get(`/recommendations/top/${amount}`);
     expect(result.body.length).toBe(amount);
   });
@@ -74,6 +74,19 @@ describe('/recommendations/top/:amount', () => {
     await connection.query('DELETE FROM songs');
     const amount = 1;
     const result = await supertest(app).get(`/recommendations/top/${amount}`);
+    expect(result.status).toBe(404);
+  });
+});
+
+describe('/recommendations/random', () => {
+  it("Returns 200 for valid request", async () => {
+    const result = await supertest(app).get('/recommendations/random');
+    expect(result.status).toBe(200);
+  });
+
+  it("Returns 404 if there is no song to return", async () => {
+    await connection.query('DELETE FROM songs');
+    const result = await supertest(app).get('/recommendations/random');
     expect(result.status).toBe(404);
   });
 });
