@@ -23,7 +23,7 @@ describe('getTopRecommendations(amount)', () => {
 
 describe('getRandomRecommendations()', () => {
   it("Throws SongNotFound if there's no scores", async () => {
-    jest.spyOn(recommendationsRepository, 'getMaxAndMinScores').mockReturnValueOnce({});
+    jest.spyOn(recommendationsRepository, 'getMaxAndMinScores').mockReturnValueOnce({ maxScore: null });
     const result = sut.getRandomRecommendations();
     await expect(result).rejects.toThrowError(SongNotFound);
   });
