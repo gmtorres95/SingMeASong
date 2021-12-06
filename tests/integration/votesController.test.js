@@ -16,7 +16,6 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await connection.query('DELETE FROM votes');
   await connection.query('DELETE FROM songs');
   connection.end();
 });
@@ -27,7 +26,7 @@ describe('/recommendations/:id/upvote', () => {
     expect(result.status).toBe(200);
   });
 
-  it("Returns 404 for invalid id", async () => {
+  it("Returns 404 for invalid ID", async () => {
     const result = await supertest(app).post(`/recommendations/0/upvote`);
     expect(result.status).toBe(404);
   });
@@ -39,7 +38,7 @@ describe('/recommendations/:id/downvote', () => {
     expect(result.status).toBe(200);
   });
 
-  it("Returns 404 for invalid id", async () => {
+  it("Returns 404 for invalid ID", async () => {
     const result = await supertest(app).post(`/recommendations/0/downvote`);
     expect(result.status).toBe(404);
   });
