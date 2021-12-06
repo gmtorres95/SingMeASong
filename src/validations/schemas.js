@@ -16,6 +16,6 @@ export const amountSchema = joi.object({
   amount: joi
     .number()
     .integer()
-    .greater(0)
+    .positive()
     .required(),
 });

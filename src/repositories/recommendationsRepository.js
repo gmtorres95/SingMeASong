@@ -7,10 +7,10 @@ export async function createRecommendation({ name, youtubeLink }) {
   );
 }
 
-export async function getTopRecommendations(amount) {
+export async function getTopRecommendations(limit) {
   const result = await connection.query(
     'SELECT * FROM songs ORDER BY score DESC LIMIT $1',
-    [amount],
+    [limit],
   );
   return result.rows;
 }

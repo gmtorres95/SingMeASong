@@ -6,7 +6,10 @@ export async function vote(id, isUpvote) {
   if (score === undefined) throw new SongNotFound('This song does not exist');
 
   const newScore = isUpvote ? score + 1 : score - 1;
-
+  if (!isUpvote && score <= -5) {
+    await votesRepository.deleteSong(id);
+    return { message: 'Vote registered and song deleted' };
+  }
   await votesRepository.vote(newScore, id);
-  if (newScore < -5) await votesRepository.deleteSong(id);
+  return { message: 'Vote registered' };
 }
