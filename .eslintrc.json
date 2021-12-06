@@ -21,6 +21,7 @@
         "linebreak-style": "off",
         "no-unused-vars": "off",
         "consistent-return": "off",
-        "no-unsafe-optional-chaining": "off"
+        "no-unsafe-optional-chaining": "off",
+        "no-plusplus": "off"
     }
 }
