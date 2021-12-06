@@ -1,7 +1,7 @@
 import SongNotFound from '../errors/SongNotFound.js';
 import ValidationError from '../errors/ValidationError.js';
 import * as validations from '../validations/validations.js';
-import * as recommendationService from '../services/recommendationService.js';
+import * as recommendationService from '../services/recommendationsService.js';
 
 export async function createRecommendation(req, res, next) {
   try {
