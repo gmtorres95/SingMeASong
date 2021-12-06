@@ -17,8 +17,9 @@ Link of the API: https://smas.herokuapp.com
 
 ### POST /recommendations
 
+With this route you can share your recommendations.    
 <details>
-  <summary>With this route you can share your recommendation sending a JSON like this one:</summary>
+  <summary>Send a JSON like this one:</summary>
 
   ```bash
   {
