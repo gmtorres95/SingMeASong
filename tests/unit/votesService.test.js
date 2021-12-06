@@ -1,11 +1,11 @@
 import connection from '../../src/database.js';
+import SongNotFound from '../../src/errors/SongNotFound.js';
 import * as sut from '../../src/services/votesService.js';
 import * as votesRepository from '../../src/repositories/votesRepository.js';
-import SongNotFound from '../../src/errors/SongNotFound.js';
 
 afterAll(() => connection.end());
 
-describe('votesService.vote()', () => {
+describe('vote(id, isUpvote)', () => {
   jest.spyOn(votesRepository, 'deleteSong');
   jest.spyOn(votesRepository, 'vote');
 
