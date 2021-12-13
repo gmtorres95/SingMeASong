@@ -9,7 +9,7 @@ export async function vote(id, isUpvote) {
     return { message: 'Vote registered and song deleted' };
   }
 
-  score = isUpvote ? score++ : score--;
+  score = isUpvote ? score + 1 : score - 1;
   await votesRepository.vote(score, id);
   return { message: 'Vote registered' };
 }
