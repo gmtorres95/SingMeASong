@@ -89,7 +89,7 @@ The ```:amount``` must be a positive integer and it'll be the length of the list
 
 ```bash
 # Clone this repository
-$ git clone https://https://github.com/gmtorres95/SingMeASong
+$ git clone https://github.com/gmtorres95/SingMeASong
 
 # Install the dependencies
 $ npm i
